@@ -42,6 +42,7 @@
 							}, function (e) {
 						// clear any selection
 						document.selection && document.selection.empty();
+						window.getSelection && window.getSelection().removeAllRanges();
 						// check within bounds
 						if (e.pageX > e.data.lbound && e.pageX < e.data.rbound ) {
 							// step in X axis
@@ -89,6 +90,7 @@
 					}).mousedown(function (e) {
 						// prevent drag text selection of hour blocks
 						document.selection && document.selection.empty();
+						window.getSelection && window.getSelection().removeAllRanges();
 						e.preventDefault && e.preventDefault();
 						e.stopPropagation && e.stopPropagation();
 					});
