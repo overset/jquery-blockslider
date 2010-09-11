@@ -10,9 +10,16 @@
 		$(function() {
 			
 			$('.blockslider').blockslider();
-			$('.blockslider:last').blockslider({initPosition:0});
+			
+			$('.blockslider:last').blockslider({
+				initPosition: 8,
+				moveCursorToCallback: function (pos) {
+					$('.blockslider:last .status').html($('.blockslider:last .block:eq(' + pos + ')').html());
+				}
+			});
  			
  			$('.blockslider').blockslider(2);
+ 			
  			$('.blockslider:last').blockslider(7);
  			
 		});
@@ -191,6 +198,8 @@ ul.blockslider, ul.blockslider ul, ul.blockslider li {
 		<li class="block">3pm</li>
 		<li class="block">4pm</li>
 		<li class="block">5pm</li>
+
+		<li class="status"></li>
 
 		<li class="clear"></li>
 
