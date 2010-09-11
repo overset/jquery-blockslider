@@ -9,7 +9,6 @@
 			return this.each(function () {
 				moveCursorTo(this, opts);
 			});
-			return this;
 		}
 		// initialize: iterate through selected items - chainable
 		return this.each(function () {
