@@ -5,9 +5,9 @@
 (function ($) {
 	$.fn.blockslider = function (options) {
 		// if numeric argument, not object, move the cursor
-		if (typeof opts === 'number') {
+		if (typeof options === 'number') {
 			return this.each(function () {
-				moveCursorTo(this, opts);
+				moveCursorTo(this, options);
 			});
 		}
 		// initialize: iterate through selected items - chainable
@@ -101,11 +101,15 @@
 	};
 	function moveCursorTo (target, pos) {
 		var opts = $(target).data('blockslider.opts') || {};
+		// check valid range in blocks
+		if (pos < 0 || pos >= ($('.block:not(.divider)', target).length - 1))
+			return true; // continue
+		// duplicate the position click if already current position?
 		if (opts.disableDuplicatePos && pos === opts.currPos)
 			return true; // continue
 		// select slider hour block
 		$('.blockSelected', target).removeClass('blockSelected');
-		$('.block:eq(' + pos + ')', target).addClass('blockSelected');
+		$('.block:not(.divider):eq(' + pos + ')', target).addClass('blockSelected');
 		var cursor = $('.cursor', target),
 			cursorWidth = cursor.outerWidth();
 		cursor.css('margin-left', (pos * cursorWidth));
