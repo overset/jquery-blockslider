@@ -28,44 +28,45 @@
 			$(target).data('blockslider.opts', opts);
 			
 			// drag-drop support
-			$('.cursor', target).bind('mousedown.blockslider', {target:target}, function (e) {
-				// prevent default event handling from happening
-				e.preventDefault && e.preventDefault();
-				var guide = $('.guide', e.data.target),
-					lbound = guide.offset().left,
-					rbound = lbound + guide.outerWidth();
-				$(document).unbind('mousemove.blockslider').bind('mousemove.blockslider', {
-							target: e.data.target,
-							lbound: lbound,
-							rbound: rbound
-						}, function (e) {
-					// clear any selection
-					document.selection && document.selection.empty();
-					// check within bounds
-					if (e.pageX > e.data.lbound && e.pageX < e.data.rbound ) {
-						// step in X axis
-						var pos = Math.floor(
-							(e.pageX - e.data.lbound) / 
-							$('.cursor', e.data.target).outerWidth());
-						moveCursorTo(e.data.target, pos);
-					}
-				});
-				// add drag css class to cursor
-				$(this).addClass('cursorDrag');
-				// prevent event propagation
-				e.stopPropagation && e.stopPropagation();
-				// clear drag-drop sliding event handler
-				$(document).unbind('mouseup.blockslider')
-					.bind('mouseup.blockslider', {cursor:this}, function (e) {
-						e.preventDefault && e.preventDefault();
-						e.stopPropagation && e.stopPropagation();
-						$(e.data.cursor).removeClass('cursorDrag');
-						$(document).unbind('mousemove.blockslider mouseup.blockslider');
+			$('.cursor', target).unbind('mousedown.blockslider')
+				.bind('mousedown.blockslider', {target:target}, function (e) {
+					// prevent default event handling from happening
+					e.preventDefault && e.preventDefault();
+					var guide = $('.guide', e.data.target),
+						lbound = guide.offset().left,
+						rbound = lbound + guide.outerWidth();
+					$(document).unbind('mousemove.blockslider').bind('mousemove.blockslider', {
+								target: e.data.target,
+								lbound: lbound,
+								rbound: rbound
+							}, function (e) {
+						// clear any selection
+						document.selection && document.selection.empty();
+						// check within bounds
+						if (e.pageX > e.data.lbound && e.pageX < e.data.rbound ) {
+							// step in X axis
+							var pos = Math.floor(
+								(e.pageX - e.data.lbound) / 
+								$('.cursor', e.data.target).outerWidth());
+							moveCursorTo(e.data.target, pos);
+						}
 					});
-			// add the hover for the cursor
-			}).bind('mouseover.blockslider mouseout.blockslider',  function () { 
-				$(this).toggleClass('cursorHover');
-			});
+					// add drag css class to cursor
+					$(this).addClass('cursorDrag');
+					// prevent event propagation
+					e.stopPropagation && e.stopPropagation();
+					// clear drag-drop sliding event handler
+					$(document).unbind('mouseup.blockslider')
+						.bind('mouseup.blockslider', {cursor:this}, function (e) {
+							e.preventDefault && e.preventDefault();
+							e.stopPropagation && e.stopPropagation();
+							$(e.data.cursor).removeClass('cursorDrag');
+							$(document).unbind('mousemove.blockslider mouseup.blockslider');
+						});
+				// add the hover for the cursor
+				}).bind('mouseover.blockslider mouseout.blockslider',  function () { 
+					$(this).toggleClass('cursorHover');
+				});
 			
 			// guide click location
 			$('.guide', target).unbind('click.blockslider')
@@ -91,7 +92,9 @@
 						e.preventDefault && e.preventDefault();
 						e.stopPropagation && e.stopPropagation();
 					});
-			}).bind('mouseover.blockslider mouseout.blockslider', function () {
+			})
+			.unbind('mouseover.blockslider mouseout.blockslider')
+			.bind('mouseover.blockslider mouseout.blockslider', function () {
 				$(this).toggleClass('blockHover');
 			});
 			
