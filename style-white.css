@@ -1,0 +1,77 @@
+.timeSlide {
+	margin: 8px 0px;
+	font-family: tahoma;
+}
+.timeSlide .guide {
+	width: 328px;
+	height: 4px;
+	border: 1px solid #ccc;
+	background: #f9f9f9 url(f0f2f5grad.gif) top center repeat-x;
+	cursor: pointer;
+	font-size: 0.1em;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}
+.timeSlide .cursor {
+	position: absolute;
+	margin-top: -9px;
+	width: 28px;
+	height: 10px;
+	border: 1px solid #888;
+	border-top: 0px;
+	cursor: pointer;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	background: #f9f9f9 url(f0f2f5grad.gif) top center repeat-x;
+}
+.timeSlide .cursorHover {
+	background: #efefef url(eeGrad.gif) bottom center repeat-x;
+}
+.timeSlide .cursorDrag {
+	background:#fafafa;
+}
+.timeSlide .cursor .arrow {
+	width: 28px;
+	height: 5px;
+	position: absolute;
+	margin-top: -3px;
+	background: url(slider-toparrow.gif) bottom center no-repeat;
+}
+.timeSlide .hblock {
+	-webkit-border-top-left-radius: 2px;
+	-webkit-border-top-right-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-topright: 2px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	float: left;
+	line-height: 10px;
+	width: 30px;
+	font-size: 10px;
+	cursor: default;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 8px;
+	cursor: pointer;
+	color: #888;
+}
+.timeSlide .hblockSelected {
+	width: 28px;
+	border: 1px solid #ccc;
+	margin-top: -1px;
+	background: #f9f9f9 url(eeGrad2.gif) bottom center repeat-x;
+	color: #000;
+}
+.timeSlide .hblockHover {
+	text-decoration: underline;
+	color: #000;
+}
+.timeSlide .divider {
+	border-right: 1px solid #ccc;
+	width: 29px !important;
+	height: 4px;
+	padding: 0 !important;
+}
+.timeSlide .dividerFirst {
+	margin-left: -1px;
+}

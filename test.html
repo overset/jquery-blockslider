@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script> 
+	<script src="blockslider.js" type="text/javascript"></script> 
+<!--
+	<link rel="stylesheet" href="style-white.css" type="text/css" media="screen" />
+-->
+	<script type="text/javascript">
+
+
+
+		$(function() {
+			$('.blockslider').blockslider();
+			$('.blockslider:last').blockslider({initPosition:0});
+		});
+	</script>
+	<style>
+.blockslider {
+	margin: 8px 0px;
+	font-family: tahoma;
+}
+.blockslider .guide {
+	width: 328px;
+	height: 4px;
+	border: 1px solid #ccc;
+	background: #f9f9f9 url(f0f2f5grad.gif) top center repeat-x;
+	cursor: pointer;
+	font-size: 0.1em;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}
+.blockslider .cursor {
+	position: absolute;
+	margin-top: -9px;
+	width: 28px;
+	height: 10px;
+	border: 1px solid #888;
+	border-top: 0px;
+	cursor: pointer;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	background: #f9f9f9 url(f0f2f5grad.gif) top center repeat-x;
+}
+.blockslider .cursorHover {
+	background: #efefef url(eeGrad.gif) bottom center repeat-x;
+}
+.blockslider .cursorDrag {
+	background:#fafafa;
+}
+.blockslider .cursor .arrow {
+	width: 28px;
+	height: 5px;
+	position: absolute;
+	margin-top: -3px;
+	background: url(slider-toparrow.gif) bottom center no-repeat;
+}
+.blockslider .block {
+	-webkit-border-top-left-radius: 2px;
+	-webkit-border-top-right-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-topright: 2px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	float: left;
+	line-height: 10px;
+	width: 30px;
+	font-size: 10px;
+	cursor: default;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 8px;
+	cursor: pointer;
+	color: #888;
+}
+.blockslider .blockSelected {
+	width: 28px;
+	border: 1px solid #ccc;
+	margin-top: -1px;
+/*
+	background: #f9f9f9 url(eeGrad2.gif) bottom center repeat-x;
+*/
+	color: #000;
+}
+.blockslider .blockHover {
+	text-decoration: underline;
+	color: #000;
+}
+.blockslider .divider {
+	border-right: 1px solid #ccc;
+	width: 29px !important;
+	height: 4px;
+	padding: 0 !important;
+}
+.blockslider .dividerFirst {
+	margin-left: -1px;
+}
+.clear {
+	clear: both;
+}
+ul.blockslider, ul.blockslider ul, ul.blockslider li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+</style>
+</head>
+<body>
+			
+	<div class="blockslider one">
+		<div class="block">7am</div>
+		<div class="block">8am</div>
+		<div class="block">9am</div>
+		<div class="block">10am</div>
+		<div class="block">11am</div>
+		<div class="block">12pm</div>
+		<div class="block">1pm</div>
+		<div class="block">2pm</div>
+		<div class="block">3pm</div>
+		<div class="block">4pm</div>
+		<div class="block">5pm</div>
+
+		<div class="clear"></div>
+
+		<div class="guide">
+			<div class="block divider dividerFirst"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block"></div>
+		</div>
+		<div class="cursor">
+			<div class="arrow"></div>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	<div class="blockslider two">
+		<div class="block">7am</div>
+		<div class="block">8am</div>
+		<div class="block">9am</div>
+		<div class="block">10am</div>
+		<div class="block">11am</div>
+		<div class="block">12pm</div>
+		<div class="block">1pm</div>
+		<div class="block">2pm</div>
+		<div class="block">3pm</div>
+		<div class="block">4pm</div>
+		<div class="block">5pm</div>
+
+		<div class="clear"></div>
+
+		<div class="guide">
+			<div class="block divider dividerFirst"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block divider"></div>
+			<div class="block"></div>
+		</div>
+		<div class="cursor">
+			<div class="arrow"></div>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	<ul class="blockslider three">
+		<li class="block">7am</li>
+		<li class="block">8am</li>
+		<li class="block">9am</li>
+		<li class="block">10am</li>
+		<li class="block">11am</li>
+		<li class="block">12pm</li>
+		<li class="block">1pm</li>
+		<li class="block">2pm</li>
+		<li class="block">3pm</li>
+		<li class="block">4pm</li>
+		<li class="block">5pm</li>
+
+		<li class="clear"></li>
+
+		<ul class="guide">
+			<li class="block divider dividerFirst"></li>
+			<li class="block divider"></li>
+			<li class="block divider"></li>
+			<li class="block divider"></li>
+			<li class="block divider"></li>
+			<li class="block divider"></li>
+			<li class="block divider"></li>
+			<li class="block divider"></li>
+			<li class="block divider"></li>
+			<li class="block divider"></li>
+			<li class="block"></li>
+		</ul>
+		<ul class="cursor">
+			<li class="arrow"></li>
+		</ul>
+	</ul>
+
+</body>
