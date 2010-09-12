@@ -1,8 +1,8 @@
-.timeSlide {
+.blockslider {
 	margin: 8px 0px;
 	font-family: tahoma;
 }
-.timeSlide .guide {
+.blockslider .guide {
 	width: 328px;
 	height: 4px;
 	border: 1px solid #ccc;
@@ -12,7 +12,7 @@
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 }
-.timeSlide .cursor {
+.blockslider .cursor {
 	position: absolute;
 	margin-top: -9px;
 	width: 28px;
@@ -24,20 +24,20 @@
 	-moz-border-radius: 2px;
 	background: #f9f9f9 url(f0f2f5grad.gif) top center repeat-x;
 }
-.timeSlide .cursorHover {
+.blockslider .cursorHover {
 	background: #efefef url(eeGrad.gif) bottom center repeat-x;
 }
-.timeSlide .cursorDrag {
+.blockslider .cursorDrag {
 	background:#fafafa;
 }
-.timeSlide .cursor .arrow {
+.blockslider .cursor .arrow {
 	width: 28px;
 	height: 5px;
 	position: absolute;
 	margin-top: -3px;
 	background: url(slider-toparrow.gif) bottom center no-repeat;
 }
-.timeSlide .hblock {
+.blockslider .block {
 	-webkit-border-top-left-radius: 2px;
 	-webkit-border-top-right-radius: 2px;
 	-moz-border-radius-topleft: 2px;
@@ -55,23 +55,30 @@
 	cursor: pointer;
 	color: #888;
 }
-.timeSlide .hblockSelected {
+.blockslider .blockSelected {
 	width: 28px;
 	border: 1px solid #ccc;
 	margin-top: -1px;
-	background: #f9f9f9 url(eeGrad2.gif) bottom center repeat-x;
 	color: #000;
 }
-.timeSlide .hblockHover {
+.blockslider .blockHover {
 	text-decoration: underline;
 	color: #000;
 }
-.timeSlide .divider {
+.blockslider .divider {
 	border-right: 1px solid #ccc;
 	width: 29px !important;
 	height: 4px;
 	padding: 0 !important;
 }
-.timeSlide .dividerFirst {
+.blockslider .dividerFirst {
 	margin-left: -1px;
+}
+.clear {
+	clear: both;
+}
+ul.blockslider, ul.blockslider ul, ul.blockslider li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
