@@ -12,6 +12,7 @@
 		}
 		// initialize: iterate through selected items - chainable
 		return this.each(function () {
+			
 			var target = this,
 				opts = $.extend({
 					// initial position of the cursor - index of block
@@ -30,8 +31,7 @@
 			// drag-drop support
 			$('.cursor', target).unbind('mousedown.blockslider')
 				.bind('mousedown.blockslider', {target:target}, function (e) {
-					// prevent default event handling from happening
-					e.preventDefault && e.preventDefault();
+					clearEvents(e);
 					var guide = $('.guide', e.data.target),
 						lbound = guide.offset().left,
 						rbound = lbound + guide.outerWidth();
@@ -40,9 +40,7 @@
 								lbound: lbound,
 								rbound: rbound
 							}, function (e) {
-						// clear any selection
-						document.selection && document.selection.empty();
-						window.getSelection && window.getSelection().removeAllRanges();
+						clearEvents(e);
 						// check within bounds
 						if (e.pageX > e.data.lbound && e.pageX < e.data.rbound ) {
 							// step in X axis
@@ -59,8 +57,7 @@
 					// clear drag-drop sliding event handler
 					$(document).unbind('mouseup.blockslider')
 						.bind('mouseup.blockslider', {cursor:this}, function (e) {
-							e.preventDefault && e.preventDefault();
-							e.stopPropagation && e.stopPropagation();
+							clearEvents(e);
 							$(e.data.cursor).removeClass('cursorDrag');
 							$(document).unbind('mousemove.blockslider mouseup.blockslider');
 						});
@@ -89,11 +86,7 @@
 					.bind('click.blockslider', {target:target}, function (e) {
 						moveCursorTo(e.data.target, i);
 					}).mousedown(function (e) {
-						// prevent drag text selection of hour blocks
-						document.selection && document.selection.empty();
-						window.getSelection && window.getSelection().removeAllRanges();
-						e.preventDefault && e.preventDefault();
-						e.stopPropagation && e.stopPropagation();
+						clearEvents(e);
 					});
 			})
 			.unbind('mouseover.blockslider mouseout.blockslider')
@@ -103,6 +96,7 @@
 			
 			// intialize the cursor
 			moveCursorTo(target, opts.initPosition);
+			
 		});
 	};
 	function moveCursorTo (target, pos) {
@@ -124,4 +118,11 @@
 		if (typeof opts.moveCursorToCallback === 'function')
 			opts.moveCursorToCallback(pos);
 	};
+	function clearEvents (e) {
+		// prevent drag text selection of hour blocks
+		document.selection && document.selection.empty();
+		window.getSelection && window.getSelection().removeAllRanges();
+		e.preventDefault && e.preventDefault();
+		e.stopPropagation && e.stopPropagation();
+	}
 })(jQuery);

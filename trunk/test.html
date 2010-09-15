@@ -14,7 +14,7 @@
 			$('.blockslider:last').blockslider({
 				initPosition: 8,
 				moveCursorToCallback: function (pos) {
-					$('.blockslider:last .status').html($('.blockslider:last .block:eq(' + pos + ')').html());
+					$('.status').html('Selected: ' + $('.blockslider:last .block:eq(' + pos + ')').html());
 				}
 			});
  			
@@ -209,6 +209,8 @@ ul.blockslider, ul.blockslider ul, ul.blockslider li {
 
 	<br class="clear" />
 
+	<div class="status"></div>
+
 	<ul class="blockslider three">
 		<li class="block">7am</li>
 		<li class="block">8am</li>
@@ -222,26 +224,24 @@ ul.blockslider, ul.blockslider ul, ul.blockslider li {
 		<li class="block">4pm</li>
 		<li class="block">5pm</li>
 
-		<li class="status"></li>
-
 		<li class="clear"></li>
 
-		<div class="guide">
-			<div class="block"></div>
-			<div class="block"></div>
-			<div class="block"></div>
-			<div class="block"></div>
-			<div class="block"></div>
-			<div class="block"></div>
-			<div class="block"></div>
-			<div class="block"></div>
-			<div class="block"></div>
-			<div class="block"></div>
-		</div>
-		<div class="cursor">
-			<div class="arrowBorder"></div>
-			<div class="arrow"></div>
-		</div>
+		<ul class="guide">
+			<li class="block"></li>
+			<li class="block"></li>
+			<li class="block"></li>
+			<li class="block"></li>
+			<li class="block"></li>
+			<li class="block"></li>
+			<li class="block"></li>
+			<li class="block"></li>
+			<li class="block"></li>
+			<li class="block"></li>
+		</ul>
+		<ul class="cursor">
+			<li class="arrowBorder"></li>
+			<li class="arrow"></li>
+		</ul>
 	</ul>
 	
 </body>
