@@ -65,7 +65,8 @@
 							$(document).unbind('mousemove.blockslider mouseup.blockslider');
 						});
 				// add the hover for the cursor
-				}).bind('mouseover.blockslider mouseout.blockslider',  function () { 
+				}).unbind('mouseover.blockslider mouseout.blockslider')
+				.bind('mouseover.blockslider mouseout.blockslider',  function (e) { 
 					$(this).toggleClass('cursorHover');
 				});
 			
@@ -107,7 +108,7 @@
 	function moveCursorTo (target, pos) {
 		var opts = $(target).data('blockslider.opts') || {};
 		// check valid range in blocks
-		if (pos < 0 || pos >= ($('.block:not(.divider)', target).length - 1))
+		if (pos < 0 || pos >= ($('.block:not(.divider)', target).length - 0))
 			return true; // continue
 		// duplicate the position click if already current position?
 		if (opts.disableDuplicatePos && pos === opts.currPos)
