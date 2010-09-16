@@ -52,8 +52,6 @@
 					});
 					// add drag css class to cursor
 					$(this).addClass('cursorDrag');
-					// prevent event propagation
-					e.stopPropagation && e.stopPropagation();
 					// clear drag-drop sliding event handler
 					$(document).unbind('mouseup.blockslider')
 						.bind('mouseup.blockslider', {cursor:this}, function (e) {
