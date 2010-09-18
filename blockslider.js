@@ -79,7 +79,7 @@
 				});
 			
 			// specific block click location
-			$('.block:not(.divider)', target).each(function (i) {
+			$(target).children('.block', target).each(function (i) {
 				$(this).unbind('click.blockslider')
 					.bind('click.blockslider', {target:target}, function (e) {
 						moveCursorTo(e.data.target, i);
@@ -98,23 +98,24 @@
 		});
 	};
 	function moveCursorTo (target, pos) {
-		var opts = $(target).data('blockslider.opts') || {};
+		var opts = $(target).data('blockslider.opts') || {},
+			blocks = $(target).children('.block');
 		// check valid range in blocks
-		if (pos < 0 || pos >= ($('.block:not(.divider)', target).length - 0))
+		if (pos < 0 || pos >= (blocks.length - 0))
 			return true; // continue
 		// duplicate the position click if already current position?
 		if (opts.disableDuplicatePos && pos === opts.currPos)
 			return true; // continue
 		// select slider hour block
 		$('.blockSelected', target).removeClass('blockSelected');
-		$('.block:not(.divider):eq(' + pos + ')', target).addClass('blockSelected');
+		blocks.eq(pos).addClass('blockSelected');
 		var cursor = $('.cursor', target),
 			cursorWidth = cursor.outerWidth();
 		cursor.css('margin-left', (pos * cursorWidth));
 		opts.currPos = pos;
 		$(target).data('blockslider.opts', opts);
 		if (typeof opts.moveCursorToCallback === 'function')
-			opts.moveCursorToCallback(pos);
+			opts.moveCursorToCallback(pos, blocks.eq(pos));
 	};
 	function clearEvents (e) {
 		// prevent drag text selection of hour blocks

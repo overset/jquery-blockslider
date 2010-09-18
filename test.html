@@ -9,19 +9,23 @@
 	<script type="text/javascript">
 		$(function() {
 			
+			// initialize all the blocksliders
 			$('.blockslider').blockslider();
 			
-			$('.blockslider:last').blockslider({
+			// set the blockslider with the "three" class to update a status div with the current selection
+			$('.three').blockslider({
 				initPosition: 8,
-				moveCursorToCallback: function (pos) {
-					$('.status').html('Selected: ' + $('.blockslider:last .block:eq(' + pos + ')').html());
+				moveCursorToCallback: function (pos, selectedBlock) {
+					$('.threeStatus').html('Selected: ' + $(selectedBlock).html());
 				}
 			});
+			
+ 			// set the blockslider with the "three" class to position 7
+ 			$('.three').blockslider(7);
  			
+ 			// set all sliders to position 2
  			$('.blockslider').blockslider(2);
- 			
- 			$('.blockslider:last').blockslider(7);
- 			
+
 		});
 	</script>
 	<style>
@@ -109,7 +113,7 @@
 	-webkit-border-top-right-radius: 2px;
 }
 .blockslider .blockSelected {
-	border: 1px solid #ccc;
+	border: 1px solid #ccc !important;
 	color: #000;
 	margin-top: -1px;
 	width: 28px;
@@ -134,6 +138,39 @@ ul.blockslider, ul.blockslider ul, ul.blockslider li {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+}
+
+.four .block {
+	width: 36px !important;
+	border: 1px solid #fff;
+	margin-top: 0px !important;
+}
+.four .guide {
+	width: 112px;
+}
+.four .guide .block {
+	border-width: 0px 1px 0px 0px;
+}
+.four .cursor {
+	width: 36px;
+}
+.four .cursor .arrowBorder {
+	margin-left: 12px;
+}
+.four .cursor .arrow {
+	margin-left: 13px;
+}
+.socialTwitter, .socialFacebook, .socialYahoo {
+	margin: 0px 5px;
+	width: 25px;
+	height: 25px;
+	background: url(social.png) 0px 0px no-repeat;
+}
+.socialFacebook {
+	background-position: -25px 0px;
+}
+.socialYahoo {
+	background-position: -50px 0px;
 }
 </style>
 </head>
@@ -209,7 +246,7 @@ ul.blockslider, ul.blockslider ul, ul.blockslider li {
 
 	<br class="clear" />
 
-	<div class="status"></div>
+	<div class="threeStatus"></div>
 
 	<ul class="blockslider three">
 		<li class="block">7am</li>
@@ -244,5 +281,24 @@ ul.blockslider, ul.blockslider ul, ul.blockslider li {
 		</ul>
 	</ul>
 	
+	<br class="clear" />
+
+	<ul class="blockslider four">
+		<li class="block"><div class="socialTwitter"></div></li>
+		<li class="block"><div class="socialFacebook"></div></li>
+		<li class="block"><div class="socialYahoo"></div></li>
+
+		<li class="clear"></li>
+
+		<ul class="guide">
+			<li class="block"></li>
+			<li class="block"></li>
+		</ul>
+		<ul class="cursor">
+			<li class="arrowBorder"></li>
+			<li class="arrow"></li>
+		</ul>
+	</ul>
+
 </body>
 </html>
